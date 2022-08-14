@@ -30,4 +30,4 @@ async def luck_roll_handle(bot: Bot, event: Event):
     rnd = random.Random()
     rnd.seed(int(date.today().strftime("%y%m%d")) + int(event.get_user_id()))
     luck = rnd.randint(1, 100)
-    await luck_roll.finish(Message(f'[CQ:at,qq={event.get_user_id()}]您今天的运势为"{luck_define(luck)}"'))
+    await bot.send(event,Message(f'[CQ:at,qq={event.get_user_id()}]您今天的运势为"{luck_define(luck)}"'))
