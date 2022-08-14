@@ -1,0 +1,9 @@
+{
+    "SUPERUSERS": [
+        ""
+    ],
+    "PROXIES_HTTP": "",
+    "PROXIES_SOCKS": "",
+    "PROXIES_SWITCH": 1,
+    "ONLINE_SWITCH": 0
+}
