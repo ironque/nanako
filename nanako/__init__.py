@@ -10,6 +10,7 @@ def load_plugins():
     nonebot.load_plugin("nanako.plugins.what_to_drink")
     nonebot.load_plugin("nonebot_plugin_heisi")
     nonebot.load_plugin("nanako.plugins.recent")
+    # nonebot.load_plugin("nanako.plugins.just_for_test")
     # nonebot.load_plugin("nanako/plugins/nonebot_plugin_setu")
     nonebot.load_plugin("nonebot_plugin_atri")
     # nonebot.load_plugin("nonebot_plugin_setu")

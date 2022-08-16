@@ -4,6 +4,7 @@ from nanako.plugins.save_log import savelog
 import nanako
 import nonebot
 from nonebot.adapters.onebot.v11 import Adapter as ONEBOT_V11Adapter
+
 # from nonebot.log import LoguruHandler
 # Custom your logger
 # 
@@ -24,8 +25,6 @@ app = nonebot.get_asgi()
 driver = nonebot.get_driver()
 driver.register_adapter(ONEBOT_V11Adapter)
 nanako.load_plugins()
-
-
 
 # Please DO NOT modify this file unless you know what you are doing!
 # As an alternative, you should use command `nb` or modify `pyproject.toml` to load plugins
