@@ -1,19 +1,17 @@
-from nanako.plugins.just_for_test import account_get
-from nanako.plugins.recent.helper_def import get_account, convert_to_ans, day_get
+from nanako.plugins.recent.helper_def import get_account, convert_to_ans, day_get, account_get
 from nonebot.adapters.onebot.v11.message import Message
 import httpx
 from nonebot.adapters.onebot.v11 import Bot, MessageEvent
 from nonebot.plugin import on_command
 from nonebot.params import CommandArg
-
-# env.globals.update(set_damageColor=set_damageColor, set_winColor=set_winColor, set_upinfo_color=set_upinfo_color,
-#                    time=time, int=int, abs=abs, enumerate=enumerate)
+from nanako.plugins.recent.token import token
 
 
 headers = {
-    'Authorization': "",    #请从benxin开发者群获取token
+    'Authorization': "",  # 请从benxin开发者群获取token
 }
 
+headers['Authorization'] = token
 wws_recent_30 = on_command('ww', priority=50)
 
 
@@ -36,17 +34,6 @@ async def _(bot: Bot, event: MessageEvent, args: Message = CommandArg()):
             ans = f"[CQ:at,qq={accountID}]该日期未找到游戏记录"
         else:
             data = resp.json()['data']['shipData'][0]['shipData']
-            # ans = ast.literal_eval(str(data))
             ans = convert_to_ans(data)
             ans = f"[CQ:at,qq={accountID}]\t\t\t" + ans
     await bot.send(event, ans)
-
-
-
-
-
-
-
-
-
-
