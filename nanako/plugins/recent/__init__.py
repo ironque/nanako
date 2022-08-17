@@ -11,7 +11,7 @@ from nonebot.params import CommandArg
 
 
 headers = {
-    'Authorization': "2148094154:EeROi2gN1dyeACPBNMSuBfnYllDsYSRqybIeNss",
+    'Authorization': "",    #请从benxin开发者群获取token
 }
 
 wws_recent_30 = on_command('ww', priority=50)
