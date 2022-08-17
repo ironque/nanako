@@ -1,9 +1,8 @@
-import ast
-from helper_def import get_account,convert_to_ans
+from nanako.plugins.just_for_test import account_get
+from nanako.plugins.recent.helper_def import get_account, convert_to_ans, day_get
 from nonebot.adapters.onebot.v11.message import Message
 import httpx
-import nonebot
-from nonebot.adapters.onebot.v11 import Bot, Event
+from nonebot.adapters.onebot.v11 import Bot, MessageEvent
 from nonebot.plugin import on_command
 from nonebot.params import CommandArg
 
@@ -19,17 +18,10 @@ wws_recent_30 = on_command('ww', priority=50)
 
 
 @wws_recent_30.handle()
-async def _(bot: Bot, event: Event, args: Message = CommandArg()):
-    try:
-        id_string = str(dict(event)['message'][1])
-        accountID = int(get_account(id_string))
-    except Exception:
-        plain_text = args.extract_plain_text()
-        if not plain_text:
-            accountID = int(event.get_user_id())
-        else:
-            accountID = int(get_account(plain_text))
+async def _(bot: Bot, event: MessageEvent, args: Message = CommandArg()):
     params, day = None, 0
+    accountID = account_get(event, args)
+    day = day_get(event, args)
     params = {
         "server": "QQ",
         "accountId": accountID,
